@@ -3,7 +3,7 @@
 
 # groupe BI TD1
 # Hanichi Lokman 
-# Rumer Wilfired 
+# Rumer Wilfried 
 # Ami Sada Demya 
 # Bellacene Annissa 
 # Bieuville Aristide 

@@ -9,6 +9,54 @@
 # Bieuville Aristide 
 # URL de dépot GitHub : https://github.com/uvsq20001657/projet-snake-
 
+
+
+#par Wilfried
+import tkinter as tk 
+import random as rd
+
+
+#Variables
+HEIGHT = 500
+WIDTH = 500
+
+a = rd.randint(70, 430)
+b = rd.randint(70, 430)
+
+c = rd.randint(70, 430)
+d = rd.randint(70, 430)
+
+
+#Fonctions
+def creer_mur():
+    """cree un mur de cote 20 sur l'herbe"""
+    mur = canvas.create_rectangle((a, b), (a + 20, b + 20), fill="saddle brown")
+   
+    
+def creer_pomme():
+    """cree une pomme ronde de largeur 20"""
+    pomme = canvas.create_oval((c, d), (c + 20, d + 20), fill="red")
+
+
+#Programme principal
+racine = tk.Tk()
+canvas = tk.Canvas(racine, bg="darkgreen", width=WIDTH, height=HEIGHT)
+mur_droit = canvas.create_rectangle((450, 500), (500, 0), fill="saddle brown")
+mur_gauche = canvas.create_rectangle((0, 500), (50, 0), fill="saddle brown")
+mur_bas = canvas.create_rectangle((0, 500), (500, 450), fill="saddle brown")
+mur_haut = canvas.create_rectangle((0, 0), (500, 50), fill="saddle brown")
+
+
+creer_mur()
+creer_mur()
+creer_pomme()
+
+canvas.grid()
+
+racine.mainloop()
+
+
+
 par lokman
 # ce qui augmente de 1 la taille du serpent des qu'il croque la pomme (a mettre dans la fonction moove de damya)
  r=len(Serpent)-1

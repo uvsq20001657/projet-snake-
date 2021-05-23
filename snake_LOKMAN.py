@@ -95,8 +95,8 @@ def placer_pomme():
     #cette fonction placera la pomme initiale et celles d'après de façon aléatoire
     global pomme,x,y,pX,pY, Serpent
     #les coordonnées si-dessous équivalent au fait que le serpent mange la pomme
-    if Serpent[1][0]>pX-5 and  Serpent[1][0]<pX+5:        
-        if Serpent[1][1]>pY-5 and Serpent[1][1]<pY+5:
+    if Serpent[1][0]>pX-8 and  Serpent[1][0]<pX+8:        
+        if Serpent[1][1]>pY-8 and Serpent[1][1]<pY+8:
            #dés que le serpent mange la pomme , on en replace une nouvelle au hasard
             pX = randrange(60, 440)
             pY = randrange(60, 440)

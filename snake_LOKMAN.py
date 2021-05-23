@@ -37,19 +37,19 @@ def deplacement(): #fonction qui va permettre au serpent d'etre en mouvement de 
     mur_bas = can.create_rectangle((0, 500), (500, 459), fill="saddle brown")
     mur_haut = can.create_rectangle((0, 0), (500, 50), fill="saddle brown")
    
-    if direction  == 'gauche':
+    if direction  == 'left':
         #le serpent ira a gauche si on appuie sur la fleche de gauche jusqu'à ce qu'il rencontre le mur gauche
         if Serpent[0][0] > 49:
              Serpent[0][0]  = Serpent[0][0] - dx
-    elif direction  == 'droite':
+    elif direction  == 'right':
               #le serpent ira a droite si on appuie sur la fleche de droitejusqu'à ce qu'il rencontre le mur de droite
         if Serpent[0][0] <445:
             Serpent[0][0]  = Serpent[0][0] + dx
-    elif direction  == 'haut':
+    elif direction  == 'up':
              #le serpent ira en haut si on appuie sur lafleche du haut jusqu'à ce qu'il rencontre le mur du haut
         if Serpent[0][1]> 49:
             Serpent[0][1]  = Serpent[0][1] - dy
-    elif direction  == 'bas':
+    elif direction  == 'down':
             #le serpent ira enn bas si on appuie sur la fleche du bas jusqu'à ce qu'il rencontre le mur du bas
         if Serpent[0][1] < 451:
             Serpent[0][1]  = Serpent[0][1] + dy
@@ -62,8 +62,8 @@ def deplacement(): #fonction qui va permettre au serpent d'etre en mouvement de 
    
     if flag != 0:
         fen.after(60, deplacement)
-        #une fois que le serpend a grandit car il a mangé une pomme , j'appelle la focntion d'aristide pour en replacer une 
-        test()
+        #une fois que le serpend a grandit car il a mangé une pomme , j'appelle la fonction d'aristide pour en replacer une 
+        placer_pomme()
 
    
 #augmentation de la vitesse et création des fonctions qui dirigent le serpent par damya
@@ -72,31 +72,31 @@ def speed():
     global flag
         #cette fonction permet de lancer le jeu dans un premier temps et ensuite d'augmenter la vitesse de deplacement du serpent
     if flag == 0:
-        flag = 1
+        flag = 0.5
     deplacement()
  #on crée les fonctions qui vont permettre de diriger le serpent grâce au fleches du clavier
-def left(event):
+def GAUCHE(event):
     global direction
-    direction = 'gauche'
+    direction = 'left'
 
-def right(event):
+def DROITE(event):
     global direction
-    direction = 'droite'
+    direction = 'right'
  
-def up(event):
+def HAUT(event):
     global direction
-    direction = 'haut'
+    direction = 'up'
  
-def down(event):
+def BAS(event):
     global direction
-    direction = 'bas'
+    direction = 'down'
    #placement des pommes de facon aléatoire par aristide
-def test():
+def placer_pomme():
     #cette fonction placera la pomme initiale et celles d'après de façon aléatoire
     global pomme,x,y,pX,pY, Serpent
-    
-    if Serpent[1][0]>pX-7 and  Serpent[1][0]<pX+7:        
-        if Serpent[1][1]>pY-7 and Serpent[1][1]<pY+7:
+    #les coordonnées si-dessous équivalent au fait que le serpent mange la pomme
+    if Serpent[1][0]>pX-5 and  Serpent[1][0]<pX+5:        
+        if Serpent[1][1]>pY-5 and Serpent[1][1]<pY+5:
            #dés que le serpent mange la pomme , on en replace une nouvelle au hasard
             pX = randrange(60, 440)
             pY = randrange(60, 440)
@@ -139,10 +139,10 @@ b2.pack(side=RIGHT, padx=5, pady =5)
 tex1 = Label(fen, text="Cliquez une fois sur'speed' pour commencer , cliquez plusieurs fois pour augmenter la vitesse", bg='black' , fg='white')
 tex1.pack(padx=0, pady=11,)
 #association des touches avec les fonctions de directions
-fen.bind('<Right>', right)
-fen.bind('<Left>', left)
-fen.bind('<Up>' , up)
-fen.bind('<Down>', down)
+fen.bind('<Right>', DROITE)
+fen.bind('<Left>', GAUCHE)
+fen.bind('<Up>' , HAUT)
+fen.bind('<Down>', BAS)
 
  
 

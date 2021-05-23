@@ -19,7 +19,7 @@ if direction  == 'gauche':
 # le serpent ne peut pas franchir les murs mais lorsqu'on lance le jeu , il apparait dans le mur du haut mais une fois qu'il rentre dans l'aire de jeu , il ne pourras plus en sortir.
 # (par damya) je me charge d'augmenter la difficulté du jeu en augmentant la vitesse de notre serpent et ensuite de le diriger                      .                            pour les fonctions de directions j'ai crée 4 focntions pour les 4 directions , je reprend la varirable globale "direction" de lokman ainsi que les 4 directions qu'il a créé ("gauche", "droite", "haut", "bas") et j'associe chaque fonction  a une direction (par exemple :la direction"droite" de lokman avec la fonction right que j'ai crée si je veux que le serpent aille a droite et je refais pour les 3 autres directions) 
 # ensuite il me reste plus qu'à associe chacune des fonctions aux flèches du clavier donc pour cela par exemple si on reste toujours sur la focntion right cela nous donne:
-fen.bind('<Right>', right)       et je réitere pour les 3 autres directions
+"fen.bind('<Right>', right)"       et je réitere pour les 3 autres directions
         
        
 

@@ -1,4 +1,3 @@
-
 # projet-snake-
 #2 eme projet : jeu snake 
 
@@ -30,8 +29,8 @@ def deplacement(): #fonction qui va permettre au serpent d'etre en mouvement de 
         can.create_oval(Serpent[i][0], Serpent[i][1], Serpent[i][0] +10, Serpent[i][1]+10,outline='green', fill='green')
         i=i-1
   #creation des 4 murs et de la pomme
- #je reprend ici les memes mur que wilfried a crée pour le menu
     can.create_rectangle(pX, pY, pX+10, pY+10, fill='red')
+   #je reprend ici les memes mur que wilfried a crée pour le menu
     mur_droit = can.create_rectangle((450, 500), (500, 0), fill="saddle brown")
     mur_gauche = can.create_rectangle((0, 500), (50, 0), fill="saddle brown")
     mur_bas = can.create_rectangle((0, 500), (500, 459), fill="saddle brown")
@@ -50,11 +49,10 @@ def deplacement(): #fonction qui va permettre au serpent d'etre en mouvement de 
         if Serpent[0][1]> 49:
             Serpent[0][1]  = Serpent[0][1] - dy
     elif direction  == 'down':
-            #le serpent ira enn bas si on appuie sur la fleche du bas jusqu'à ce qu'il rencontre le mur du bas
+            #le serpent ira en bas si on appuie sur la fleche du bas jusqu'à ce qu'il rencontre le mur du bas
         if Serpent[0][1] < 451:
             Serpent[0][1]  = Serpent[0][1] + dy
-#au lancement de la partie , le serpent sera dans le mur gauche mais une fois qu'il sortira de c mur , il lui sera impossible de rentrer dans un des 4murs 
-    #création de la tête du serpent , je change la couleur pour qu'on puisse la differencier du corps 
+
         
     can.create_oval(Serpent[0][0], Serpent[0][1], Serpent[0][0]+10, Serpent[0][1]+10, fill='red')
    
@@ -62,8 +60,8 @@ def deplacement(): #fonction qui va permettre au serpent d'etre en mouvement de 
    
     if flag != 0:
         fen.after(60, deplacement)
-        #une fois que le serpend a grandit car il a mangé une pomme , j'appelle la fonction d'aristide pour en replacer une 
-        placer_pomme()
+        #une fois que le serpend a grandit car il a mangé une pomme , j'appelle la focntion d'aristide pour en replacer une 
+        test()
 
    
 #augmentation de la vitesse et création des fonctions qui dirigent le serpent par damya
@@ -75,28 +73,28 @@ def speed():
         flag = 0.5
     deplacement()
  #on crée les fonctions qui vont permettre de diriger le serpent grâce au fleches du clavier
-def GAUCHE(event):
+def gauche(event):
     global direction
     direction = 'left'
 
-def DROITE(event):
+def droite(event):
     global direction
     direction = 'right'
  
-def HAUT(event):
+def haut(event):
     global direction
     direction = 'up'
  
-def BAS(event):
+def bas(event):
     global direction
     direction = 'down'
    #placement des pommes de facon aléatoire par aristide
-def placer_pomme():
+def test():
     #cette fonction placera la pomme initiale et celles d'après de façon aléatoire
     global pomme,x,y,pX,pY, Serpent
-    #les coordonnées si-dessous équivalent au fait que le serpent mange la pomme
-    if Serpent[1][0]>pX-8 and  Serpent[1][0]<pX+8:        
-        if Serpent[1][1]>pY-8 and Serpent[1][1]<pY+8:
+    
+    if Serpent[1][0]>pX-7 and  Serpent[1][0]<pX+7:        
+        if Serpent[1][1]>pY-7 and Serpent[1][1]<pY+7:
            #dés que le serpent mange la pomme , on en replace une nouvelle au hasard
             pX = randrange(60, 440)
             pY = randrange(60, 440)
@@ -108,7 +106,8 @@ x = 245
 y = 245        
 dx, dy = 10, 10
 flag = 0
-direction = 'haut'
+direction = 'up'
+#le serpent sera au milieu de l'aire de jeu et il se dirigera vers le haut
 Serpent=[[x,y],[x+2.5,y+2.5],[x+5,y+5],[0,0]]
 #placement de la pomme initiale
 pX = randrange(50, 450)
@@ -139,11 +138,12 @@ b2.pack(side=RIGHT, padx=5, pady =5)
 tex1 = Label(fen, text="Cliquez une fois sur'speed' pour commencer , cliquez plusieurs fois pour augmenter la vitesse", bg='black' , fg='white')
 tex1.pack(padx=0, pady=11,)
 #association des touches avec les fonctions de directions
-fen.bind('<Right>', DROITE)
-fen.bind('<Left>', GAUCHE)
-fen.bind('<Up>' , HAUT)
-fen.bind('<Down>', BAS)
+fen.bind('<Right>', droite)
+fen.bind('<Left>', gauche)
+fen.bind('<Up>' , haut)
+fen.bind('<Down>', bas)
 
  
 
 fen.mainloop()
+

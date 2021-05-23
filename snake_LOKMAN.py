@@ -1,4 +1,14 @@
 
+# projet-snake-
+#2 eme projet : jeu snake 
+
+# groupe BI TD1
+# Hanichi Lokman 
+# Rumer Wilfried 
+# Ami Sada Demya 
+
+# Bieuville Aristide 
+# URL de dépot GitHub : https://github.com/uvsq20001657/projet-snake-
 
 
 from tkinter import *

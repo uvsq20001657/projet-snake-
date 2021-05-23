@@ -105,7 +105,7 @@ def test():
             Serpent.append([0,0])
 
 x = 245
-y = 24        
+y = 245        
 dx, dy = 10, 10
 flag = 0
 direction = 'haut'

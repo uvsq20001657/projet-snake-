@@ -1,20 +1,19 @@
-
 # projet-snake-
-#2 eme projet : jeu snake 
+#2 eme projet : jeu snake
 
 # groupe BI TD1
-# Hanichi Lokman 
-# Rumer Wilfried 
-# Ami Sada Demya 
+# Hanichi Lokman
+# Rumer Wilfried
+# Ami Sada Demya
 
-# Bieuville Aristide 
+# Bieuville Aristide
 # URL de dépot GitHub : https://github.com/uvsq20001657/projet-snake-
 
 from tkinter import *
-
+import tkinter as tk
 from random import randrange
-#ajout de coordonnée/intersection pour faciliter le "game_over", donc la fenêtre se fermera grâce à 
-# un fen1.destroy qu'il y'a dans la fonction de lokman grâce au valeurs si dessous  
+#ajout de coordonnée/intersection pour faciliter le "game_over", donc la fenêtre se fermera grâce à
+# un fen1.destroy qu'il y'a dans la fonction de lokman grâce au valeurs si dessous
 # lorsque le serpent se mangera lui même ou sinon dés qu'il touche un des 4murs de wilfried(damya)
 def intersect(Serp,b,can):
 
@@ -37,11 +36,12 @@ def intersecthimself(Serp):
 
 def deplacement(): #fonction qui va permettre au serpent d'etre en mouvement de façon automatique et
                    # de le faire grandir à chaque fois qu'il mange une pomme.   par lokman
-  
+
     global y,pX,pY,x,Serpent
 
     can.delete('all')
     i=len(Serpent)-1
+
    #fonction qui va permettre au serpent de grandir de 1 à chaque fois qu'il mange une pomme
     while i > 0:
         Serpent[i][0]=Serpent[i-1][0]
@@ -49,10 +49,12 @@ def deplacement(): #fonction qui va permettre au serpent d'etre en mouvement de 
     #création du serpent
         can.create_oval(Serpent[i][0], Serpent[i][1], Serpent[i][0] +10, Serpent[i][1]+10, fill='green')
         i=i-1
+
+
   #creation des 4 murs et de la pomme
     can.create_rectangle(pX, pY, pX+10, pY+10, fill='red')
  #je reprend ici les memes mur que wilfried a crée pour le menu
-   
+
     mur_droit = can.create_rectangle((450, 500), (500, 0), fill="saddle brown")
     mur_gauche = can.create_rectangle((0, 500), (50, 0), fill="saddle brown")
     mur_bas = can.create_rectangle((0, 500), (500, 459), fill="saddle brown")
@@ -82,16 +84,17 @@ def deplacement(): #fonction qui va permettre au serpent d'etre en mouvement de 
         if Serpent[0][1] < 450:
             Serpent[0][1]  = Serpent[0][1] + dy
 
-    #création de la tête du serpent , je change la couleur pour qu'on puisse la differencier du corps 
-        
+    #création de la tête du serpent , je change la couleur pour qu'on puisse la differencier du corps
+
     can.create_oval(Serpent[0][0], Serpent[0][1], Serpent[0][0]+10, Serpent[0][1]+10, fill='red')
-   
-   
-   
+
+
+
     if flag != 0:
         fen1.after(50, deplacement)
-        #une fois que le serpent a grandit car il a mangé une pomme, j'appelle la fonction d'aristide pour en replacer une 
+        #une fois que le serpent a grandit car il a mangé une pomme, j'appelle la fonction d'aristide pour en replacer une
         placer_pomme()
+
 
    #augmentation de la difficulté du jeu par lokman
 def speed():
@@ -110,11 +113,11 @@ def gauche(event):
 def droite(event):
     global direction
     direction = 'right'
- 
+
 def haut(event):
     global direction
     direction = 'up'
- 
+
 def bas(event):
     global direction
     direction = 'down'
@@ -122,40 +125,31 @@ def bas(event):
 #placement des pommes de facon aléatoire par aristide
 def placer_pomme():
 #cette fonction placera la pomme initiale et celles d'après de façon aléatoire
-    global pomme,x,y,pX,pY, Serpent
-    
-    if Serpent[1][0]>pX-8 and  Serpent[1][0]<pX+8:        
+    global pomme,x,y,pX,pY, Serpent,score
+
+    if Serpent[1][0]>pX-8 and  Serpent[1][0]<pX+8:
         if Serpent[1][1]>pY-8 and Serpent[1][1]<pY+8:
 #dès que le serpent mange la pomme , on en replace une nouvelle au hasard
             pX = randrange(60, 440)
             pY = randrange(60, 440)
             can.coords(pomme,pX, pY, pX+5, pY+5)
-             
+
             Serpent.append([0,0])
+            score=score+1
+            ScoreLabel['text']=score
 x = 245
-y = 245        
+y = 245
 dx, dy = 10, 10
 flag = 0
 direction = 'up'
+score=0
 #le serpent sera placé au milieu de l'aire de jeu au début et il se déplacera vers le haut
 Serpent=[[x,y],[x+2.5,y+2.5],[x+5,y+5],[0,0]]
 
 
 #placement de la pomme initiale
-pX = randrange(60, 440)
-pY = randrange(60, 440)
-
-#la fonction score que nous n'avons pas réussi a faire fonctionner 
-#def score():
- #Label(fen, text='Score:  ').grid(row=0,column=0)
-
- #scores = StringVar()
- #Score = Entry(fen, textvariable=scores)
- #Score.grid(row=0,column=1)
- #scores.set('0')
-    
-    
-
+pX = randrange(40, 460)
+pY = randrange(40, 460)
 
 #création du canvas par wilfried
 fen1 = Tk()
@@ -163,6 +157,11 @@ can = Canvas(fen1, width=500, height=500, bg='black')
 can.pack(side=BOTTOM, padx=5, pady=5)
 fen1.title(" projet SNAKE ")
 
+#création de l'étiquette où sera affiché le score
+ScoretextLabel=tk.Label(fen1, text="Score:",bg='black',fg='white')
+ScoretextLabel.place(x=5,y=95)
+ScoreLabel=tk.Label(fen1, text=0,bg='black',fg='white')
+ScoreLabel.place(x=43,y=95)
 #on recrée la pomme et les 4murs pour le menu cette fois ci
 
 pomme = can.create_rectangle(pX, pY, pX+10, pY+10,  fill='red')
@@ -171,11 +170,11 @@ mur_gauche = can.create_rectangle((0, 500), (50, 0), fill="saddle brown")
 mur_bas = can.create_rectangle((0, 500), (500, 459), fill="saddle brown")
 mur_haut = can.create_rectangle((0, 0), (500, 50), fill="saddle brown")
 
-#création des boutons 
+#création des boutons
 #ce bouton lancera le jeu la premiere fois qu'on appuyera dessus et,ensuite dés qu'on appuie dessus , la vitesse augmentera
 b1 = Button(fen1, text='speed', command=speed, bg='black' , fg='white')
 b1.pack(side=LEFT, padx=5, pady=5)
- 
+
 #ce bouton va fermer la fenetre quand on appuyera dessus
 b2 = Button(fen1, text='Quitter', command=fen1.destroy, bg='black' , fg='white')
 b2.pack(side=RIGHT, padx=5, pady =5)

@@ -60,8 +60,8 @@ def deplacement(): #fonction qui va permettre au serpent d'etre en mouvement de 
    #destruction du serpent lorsqu'il se touche ou touche un mur par rapport aux intersect que damya a fait plus haut
     if intersectlist(can ,Serpent,[mur_droit,mur_gauche,mur_bas,mur_haut]) or intersecthimself(Serpent) :
         #on affiche un message au joueur pour l'informer qu'il a perdu
-      ptext4 =Label(fen1, text="PERDU", bg='blue' , fg='white')
-      ptext4.pack(padx=10, pady=11,)
+      ptext4 =Label(fen1, text="PERDU, tu feras mieux une prochaine fois", bg='blue' , fg='white',height=100,width=100)
+      ptext4.pack(padx=10, pady=11)
       #on détruit le serpent
       Serpent.destroy()
 

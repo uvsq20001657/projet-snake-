@@ -122,7 +122,7 @@ def bas(event):
     global direction
     direction = 'down'
 
-#placement des pommes de facon aléatoire par aristide
+#placement des pommes de facon aléatoire et affichage du scorepar aristide 
 def placer_pomme():
 #cette fonction placera la pomme initiale et celles d'après de façon aléatoire
     global pomme,x,y,pX,pY, Serpent,score
@@ -135,6 +135,7 @@ def placer_pomme():
             can.coords(pomme,pX, pY, pX+5, pY+5)
 
             Serpent.append([0,0])
+ #le score augmente de 1 a chque fois que le serpent mange la pomme
             score=score+1
             ScoreLabel['text']=score
 x = 245
@@ -148,8 +149,8 @@ Serpent=[[x,y],[x+2.5,y+2.5],[x+5,y+5],[0,0]]
 
 
 #placement de la pomme initiale
-pX = randrange(40, 460)
-pY = randrange(40, 460)
+pX = randrange(40, 440)
+pY = randrange(40, 440)
 
 #création du canvas par wilfried
 fen1 = Tk()

@@ -25,3 +25,5 @@
 
 
 # (par wilfried) je me charge de la partie visuelle du jeu donc pour commencer j'ai créé un canvas noir de 500 qui represente  l'aire de jeu , ensuite 4 murs marron de 50 qui delimitent la zone où le serpent peut se déplacer et où les pommes peuvent apparaitre, j'ai ensuite créé deux boutons : le boutton "quitter" qui permettra de fermer la fenêtre si on clique dessus et ensuite le boutton "speed" qui est associé à la fonction de lokman , si on clique une fois dessus , le jeu commence et ensuite dés qu'on clique dessus , le serpent se déplace plus vite (plus on appuie , plus il va vite).
+
+# Chaque partie n'est pas indicative du travail fourni par le nom de la personne associé. De manière général nous avons travaillé en groupe sur chaque partie.

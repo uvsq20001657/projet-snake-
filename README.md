@@ -22,7 +22,7 @@ if direction  == 'gauche':
 
 # (par aristide) je me charge de placer la pomme initiale ainsi que celles qui suivent dès que le serpent mange la précédente . Comme je dois placer les pommes aléatoirement j'utilise la librairie random. Je place la pomme initiale de façon aléatoire avec des coordonnéés comprises entre 50 et 450 pour ne pas qu'une pomme apparaisse dans un des murs. Ensuite pour les pommes qui suivent j'ai utilisé la structure conditionnelle "if" , donc si les coordonnées du serpent et de la pomme sont  identiques (donc le serpent a mangé la pomme) j'en replace une aléatoirement en utilisant encore "random" pour donner de nouvelles cordonnées à la pomme.
 
-#(par damya) je me charge du "gamme over", c'est a dire que le jeu s'arrette lorsque le serpent touche un mur ou lorsque sa tete entre en collision avec son propre corps.
+#(par damya) je me charge du "gamme over", c'est a dire que le jeu s'arrette lorsque le serpent touche un mur ou lorsque sa tete entre en collision avec son propre corps avec la fonction fen.destroy() 
 
 # (par wilfried) je me charge de la partie visuelle du jeu donc pour commencer j'ai créé un canvas noir de 500 qui represente  l'aire de jeu , ensuite 4 murs marron de 50 qui delimitent la zone où le serpent peut se déplacer et où les pommes peuvent apparaitre, j'ai ensuite créé deux boutons : le boutton "quitter" qui permettra de fermer la fenêtre si on clique dessus et ensuite le boutton "speed" qui est associé à la fonction de damya , si on clique une fois dessus , le jeu commence et ensuite dés qu'on clique dessus , le serpent se déplace plus vite (plus on appuie , plus il va vite).
 

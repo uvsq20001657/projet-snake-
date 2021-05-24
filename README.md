@@ -10,8 +10,8 @@
 # URL de dépot GitHub : https://github.com/uvsq20001657/projet-snake-
 # (par lokman)je me charge d'abord de la fonction qui permet au serpent de se déplacer et de le faire grandir à chaque fois qu'il mange une pomme , pour ne pas que le serpent traverse les 4 murs qu'a mit wilfried , j'ai utilisé les structures conditionnelles if et elif , il faut que le serpent soit dans des coordonnées précises pour qu'il puisse se déplacer par exemple voici les conditions pour qu'il puisse aller à gauche 
 
-if direction  == 'gauche':
-        if Serpent[0][0] > 49:
+   if direction  == 'left':
+        if Serpent[0][0] > 50:
              Serpent[0][0]  = Serpent[0][0] - dx
 "ce qui veut dire que tant que le le serpent n'est pas au niveau du mur gauche, il continuera à aller à gauche si on appuie sur la flèche gauche du clavier, et j'ai fait le même procédé pour les 3 autres directions.
 

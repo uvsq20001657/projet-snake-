@@ -58,10 +58,12 @@ def deplacement(): #fonction qui va permettre au serpent d'etre en mouvement de 
     mur_bas = can.create_rectangle((0, 500), (500, 459), fill="saddle brown")
     mur_haut = can.create_rectangle((0, 0), (500, 50), fill="saddle brown")
    #destruction du serpent lorsqu'il se touche ou touche un mur par rapport aux intersect que damya a fait plus haut
-    if intersectlist(can ,Serpent,[mur_droit,mur_gauche,mur_bas,mur_haut]) or intersecthimself(Serpent) :
-        
-       
-      fen1.destroy()
+    if inteif intersectlist(can ,Serpent,[mur_droit,mur_gauche,mur_bas,mur_haut]) or intersecthimself(Serpent) :
+        #on affiche un message au joueur pour l'informer qu'il a perdu
+      ptext4 =Label(fen1, text="PERDU", bg='blue' , fg='white')
+      ptext4.pack(padx=10, pady=11,)
+      #on détruit le serpent
+      Serpent.destroy()
 
     if direction  == 'left':
         #le serpent ira a gauche si on appuie sur la flèche de gauche jusqu'à ce qu'il rencontre le mur gauche

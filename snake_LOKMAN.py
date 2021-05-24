@@ -149,8 +149,8 @@ Serpent=[[x,y],[x+2.5,y+2.5],[x+5,y+5],[0,0]]
 
 
 #placement de la pomme initiale
-pX = randrange(40, 440)
-pY = randrange(40, 440)
+pX = randrange(60, 440)
+pY = randrange(60, 440)
 
 #création du canvas par wilfried
 fen1 = Tk()
@@ -174,7 +174,7 @@ mur_haut = can.create_rectangle((0, 0), (500, 50), fill="saddle brown")
 #création des boutons
 #ce bouton lancera le jeu la premiere fois qu'on appuyera dessus et,ensuite dés qu'on appuie dessus , la vitesse augmentera
 b1 = Button(fen1, text='speed', command=speed, bg='black' , fg='white')
-b1.pack(side=LEFT, padx=5, pady=5)
+b1.pack(side=RIGHT, padx=5, pady=5)
 
 #ce bouton va fermer la fenetre quand on appuyera dessus
 b2 = Button(fen1, text='Quitter', command=fen1.destroy, bg='black' , fg='white')

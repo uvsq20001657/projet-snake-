@@ -91,16 +91,16 @@ def deplacement(): #fonction qui va permettre au serpent d'etre en mouvement de 
         #une fois que le serpent a grandit car il a mangé une pomme, j'appelle la fonction d'aristide pour en replacer une 
         placer_pomme()
 
-   
-#augmentation de la vitesse et création des fonctions qui dirigent le serpent par damya
+   #augmentation de la difficulté du jeu par lokman
 def speed():
-    global pX,pY
+      #pour augmenter la difficulté j'augmente juste la vitesse de déplacement à l'aide de la variable globale "flag".
     global flag
         #cette fonction permet de lancer le jeu dans un premier temps et ensuite d'augmenter la vitesse de déplacement du serpent
     if flag == 0:
         flag =1
     deplacement()
- #on crée les fonctions qui vont permettre de diriger le serpent grâce au flèches du clavier
+
+ #je  crée les fonctions qui vont permettre de diriger le serpent grâce au flèches du clavier (par damya)
 def gauche(event):
     global direction
     direction = 'left'
@@ -180,7 +180,7 @@ b2.pack(side=RIGHT, padx=5, pady =5)
 
 
 
-#association des touches avec les fonctions de directions
+#association des touches avec les fonctions de directions de damya
 fen1.bind('<Right>', droite)
 fen1.bind('<Left>', gauche)
 fen1.bind('<Up>' , haut)

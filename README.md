@@ -4,7 +4,7 @@
 # groupe BI TD1
 # Hanichi Lokman 
 # Rumer Wilfried 
-# Ami Sada Demya 
+# Ami Saada Damya 
 
 # Bieuville Aristide 
 # URL de dépot GitHub : https://github.com/uvsq20001657/projet-snake-

@@ -142,8 +142,8 @@ Serpent=[[x,y],[x+2.5,y+2.5],[x+5,y+5],[0,0]]
 
 
 #placement de la pomme initiale
-pX = randrange(50, 450)
-pY = randrange(50, 450)
+pX = randrange(60, 440)
+pY = randrange(60, 440)
 
 #la fonction score que nous n'avons pas réussi a faire fonctionner 
 #def score():
